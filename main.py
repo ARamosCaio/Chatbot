@@ -12,7 +12,7 @@ def bot():
     responded = False
 
     if 'pato' in received_msg or 'pata' in received_msg:
-        msg_response("https://www.pexels.com/search/duck/")
+        msg_response("https://tenor.com/pt-BR/view/cat-catdriving-gif-22785638")
         responded = True
 
     if not responded:
