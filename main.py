@@ -7,12 +7,14 @@ app = Flask(__name__)
 @app.route("/bot", methods=['POST'])
 def bot():
     received_msg = request.values.get('Body', '').lower()
+    print(received_msg)
     response = MessagingResponse()
     msg_response = response.message()
     responded = False
 
-    if 'citação' in received_msg:
+    if 'citação' in received_msg:
         get_quote = requests.get('https://api.quotable.io/random')
+
         if get_quote.status_code == 200:
             data = get_quote.json()
             quote = f'{data["content"]} ({data["author"]})'
@@ -23,7 +25,7 @@ def bot():
 
     if 'pato' in received_msg or 'pata' in received_msg:
         get_duck = requests.get('https://random-d.uk/api/v2/random')
-        
+
         if get_duck.status_code == 200:
             data = get_duck.json()
             msg_response.media(data['url'])
