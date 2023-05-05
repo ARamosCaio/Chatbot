@@ -36,7 +36,7 @@ def bot():
         responded = True
 
     if not responded:
-        msg_response.body('Apenas patos')
+        msg_response.body('Apenas patos e citações')
     return str(response)
 
 
